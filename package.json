@@ -1,0 +1,39 @@
+{
+  "name": "red-x-cheat-store",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "engines": {
+    "node": ">=20.19"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc -b",
+    "db:check": "node dev/sqlcheck/check.mjs",
+    "db:test": "node dev/sqlcheck/live.mjs",
+    "delivery:check": "node --experimental-strip-types dev/delivery-check.mts",
+    "deliverable:check": "node --experimental-strip-types dev/deliverable-check.mts",
+    "features:check": "node --experimental-strip-types dev/features-check.mts",
+    "images:check": "node --experimental-strip-types dev/image-fields-check.mts",
+    "auth:check": "node --experimental-strip-types dev/auth-check.mts",
+    "db:check:setup": "npm --prefix dev/sqlcheck install",
+    "db:types": "supabase gen types typescript --linked > src/lib/database.types.ts"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.117.3",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "react-router-dom": "^7.18.4"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.3.3",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.1.2",
+    "tailwindcss": "^4.3.3",
+    "typescript": "^5.9.3",
+    "vite": "^8.3.4"
+  }
+}
